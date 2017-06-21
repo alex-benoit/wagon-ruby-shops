@@ -2,23 +2,23 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update]
   def index
     @companies = Company.all
-
   end
 
   def new
     @company = Company.new
   end
 
-  def edit
-  end
-
   def create
-    @company = Company.new(product_params)
+    category = Category.find(params[:category_id])
+    @company = category.companies.build(product_params)
     if @company.save
       redirect_to companies_path
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update
