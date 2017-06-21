@@ -1,7 +1,12 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update]
   def index
-    @companies = Company.all
+    # @companies = Company.all
+    @companies = [
+      {name: "Airbnb", url: "www.lewagon.com", employees: 5000, logo: "//logo.clearbit.com/airbnb.com"},
+      {name: "Spotify", url: "www.lewagon.com", employees: 5000, logo: "//logo.clearbit.com/spotify.com"},
+      {name: "Deliveroo", url: "www.lewagon.com", employees: 5000, logo: "//logo.clearbit.com/deliveroo.com"}
+    ]
 
   end
 
