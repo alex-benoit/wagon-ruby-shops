@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <div class="h1">RUBY COMPANIES</div>
+  <h1 class="main_title">RUBY COMPANIES</h1>
   <%= form_tag companies_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <% @companies.each do |company| %>
-        <%= render :company_card, company: company %>
+        <%= render 'companies/company_card', company: company %>
       <% end %>
     </div>
     <div class="hidden-xs col-xs-6">
