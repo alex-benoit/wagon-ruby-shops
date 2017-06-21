@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 gem 'figaro'
+gem 'geocoder'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
