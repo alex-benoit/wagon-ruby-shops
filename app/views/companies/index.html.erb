@@ -1,3 +1,29 @@
-<% @companies.each do |company| %>
-  <p><%= company[:name] %></p>
-<% end %>
+<div class="container text-center">
+  <div class="h1">RUBY COMPANIES</div>
+  <%= form_tag companies_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <% @companies.each do |company| %>
+        <%= render :company_card, company: company %>
+      <% end %>
+    </div>
+    <div class="hidden-xs col-xs-6">
+      <div class="map">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
