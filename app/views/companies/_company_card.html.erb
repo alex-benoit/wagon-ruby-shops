@@ -5,7 +5,7 @@
     <h3><%= company.name %></h3>
     <div>
       <p><i class="fa fa-user"></i> <%= company.employees %></p>
-      <p><i class="fa fa-map-marker"></i> <%= company.employees %></p>
+      <p><i class="fa fa-map-marker"></i> <% company.locations.each { |location| "#{ location.name }, "} %></p>
     </div>
   </div>
   <div class="company-card-control <%= company.category.name == 'product' ? 'blue-card-control' : 'orange-card-control' %>">

@@ -1,8 +1,7 @@
 <div class="container text-center">
   <h1 class="main_title">RUBY COMPANIES</h1>
   <%= form_tag root_path, method: :get, enforce_utf8: false do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'Search', name: nil %>
+    <%= text_field_tag :search, params[:search], class: "search", autofocus: true %>
   <% end %>
 
   <button type="button" data-toggle="modal" data-target="#modal">
@@ -49,3 +48,15 @@
     </div>
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+<script src="typed.js"></script>
+<script>
+  $(function(){
+    $(".search").typed({
+      strings: ["First sentence.", "Second sentence."],
+      typeSpeed: 0
+    });
+  });
+</script>
+<% end %>
