@@ -3,10 +3,9 @@
   <%= form_tag root_path, method: :get, enforce_utf8: false do %>
     <%= text_field_tag :search, params[:search], class: "search", autofocus: true %>
   <% end %>
-
-  <button type="button" data-toggle="modal" data-target="#modal">
-    Add new company
-  </button>
+  <%= link_to "#", data: { toggle: "modal", target: "#modal" }, class: "add-company" do %>
+    <i class="fa fa-plus"></i>
+  <% end %>
 </div>
 <div class="container-fluid">
   <div class="row">
@@ -54,7 +53,8 @@
   $(function(){
     $(".search").typed({
       strings: ["Paris", "London", "Berlin", "Bordeaux", "Amsterdam", "Shanghai", "Tokyo", "Brussels", "Lisbon"],
-      typeSpeed: 0
+      typeSpeed: 3,
+      attr: 'placeholder'
     });
   });
 </script>

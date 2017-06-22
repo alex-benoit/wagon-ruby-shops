@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   def index
     if params[:search] && !params[:search].blank?
-      @companies = Company.where(name: params[:search])
+      @companies = Company.where("name iLIKE :name", name: "%#{params[:search]}%")
     else
       @companies = Company.all
     end
