@@ -14,9 +14,11 @@
         <%= link_to "agency", "#", class: "category-btn blue-btn btn-active"  %>
         <%= link_to "product", "#", class: "category-btn orange-btn"  %>
       </div>
+      <div id="companies-container">
       <% @companies.each do |company| %>
         <%= render 'companies/company_card', company: company %>
       <% end %>
+      </div>
     </div>
     <div class="col">
       <div class="map-container">
@@ -33,22 +35,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Add a new Company</h4>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for @company, url: root_path, remote: true do |f| %>
-          <%= f.input :name %>
-          <%= f.input :url %>
-          <div class="row">
-            <div class="col-xs-6"><%= f.association :category, include_blank: 'Select a category' %></div>
-            <div class="col-xs-6"><%= f.input :employees %></div>
-          </div>
-          <%= simple_fields_for :city do |c| %>
-          <div class="row">
-            <div class="col-xs-6"><%= c.input :name, label: 'City' %></div>
-            <div class="col-xs-6"><%= c.input :country, priority: ['FR', 'GB', 'DE', 'NL', 'BE', 'PT', 'DK', 'ES', 'CA', 'BR', 'CN', 'JP'], include_blank: 'Select a country' %></div>
-          </div>
-          <% end %>
-          <%= f.submit class: "category-btn blue-btn btn-active" %>
-        <% end %>
+      <div class="modal-body" id="new-company-container">
+        <%= render 'form', company: @company %>
       </div>
     </div>
   </div>
