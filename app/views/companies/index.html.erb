@@ -10,8 +10,8 @@
   </button>
 </div>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
+  <div class="flex-row">
+    <div class="col">
       <div class="companies-category-control">
         <%= link_to "agency", "#", class: "category-btn blue-btn btn-active"  %>
         <%= link_to "product", "#", class: "category-btn orange-btn"  %>
@@ -20,9 +20,9 @@
         <%= render 'companies/company_card', company: company %>
       <% end %>
     </div>
-    <div class="hidden-xs col-xs-6">
-      <div class="map">
-
+    <div class="col">
+      <div class="map-container">
+        <div id="map"></div>
       </div>
     </div>
   </div>
@@ -55,3 +55,21 @@
     </div>
   </div>
 </div>
+<% content_for :after_js do  %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    })
+  </script>
+<% end %>
+

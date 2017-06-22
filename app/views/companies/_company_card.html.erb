@@ -1,15 +1,15 @@
 <div class="company-card">
-  <div class="company-card-logo" style="background-image: url('<%= company[:logo] %>')">
+  <div class="company-card-logo" style="background-image: url('http://logo.clearbit.com/<%= company.url %>')">
   </div>
   <div class="company-card-content">
-    <h3><%= company[:name] %></h3>
+    <h3><%= company.name %></h3>
     <div>
-      <p><i class="fa fa-user"></i> <%= company[:employees] %></p>
-      <p><i class="fa fa-map-marker"></i> <%= company[:employees] %></p>
+      <p><i class="fa fa-user"></i> <%= company.employees %></p>
+      <p><i class="fa fa-map-marker"></i> <%= company.employees %></p>
     </div>
   </div>
-  <div class="company-card-control <%= company[:category] == 'product' ? 'blue-card-control' : 'orange-card-control' %>">
-    <%= link_to company[:url], class: "card-link" do %>
+  <div class="company-card-control <%= company.category.name == 'product' ? 'blue-card-control' : 'orange-card-control' %>">
+    <%= link_to company.url, class: "card-link" do %>
       <i class="fa fa-link"></i>
     <% end %>
   </div>
