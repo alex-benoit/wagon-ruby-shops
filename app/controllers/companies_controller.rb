@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    if params[:search] && !params[:search].blank?
+      @companies = Company.where(name: params[:search])
+    else
+      @companies = Company.all
+    end
     @company = Company.new
   end
 

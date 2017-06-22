@@ -50,11 +50,10 @@
 </div>
 
 <%= content_for(:after_js) do %>
-<script src="typed.js"></script>
 <script>
   $(function(){
     $(".search").typed({
-      strings: ["First sentence.", "Second sentence."],
+      strings: ["Paris", "London", "Berlin", "Bordeaux", "Amsterdam", "Shanghai", "Tokyo", "Brussels", "Lisbon"],
       typeSpeed: 0
     });
   });
