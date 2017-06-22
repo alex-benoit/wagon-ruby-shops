@@ -1,12 +1,13 @@
 class CompaniesController < ApplicationController
   def index
-    # @companies = Company.all
-    @companies = [
-      {name: "Airbnb", url: "www.lewagon.com", employees: 5000, logo: "//logo.clearbit.com/airbnb.com", category: "product"},
-      {name: "Spotify", url: "www.lewagon.com", employees: 300, logo: "//logo.clearbit.com/spotify.com", category: "agency"},
-      {name: "Deliveroo", url: "www.lewagon.com", employees: 20, logo: "//logo.clearbit.com/deliveroo.com", category: "product"}
-    ]
+    @companies = Company.all
+    @locations = Location.includes(:city).all
     @company = Company.new
+    @hash = Gmaps4rails.build_markers(@locations.map(&:city)) do |city, marker|
+      marker.lat city.latitude
+      marker.lng city.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def create

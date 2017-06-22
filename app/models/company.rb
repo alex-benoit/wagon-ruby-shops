@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  has_many :locations
+  has_many :locations, dependent: :destroy
   belongs_to :category
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
