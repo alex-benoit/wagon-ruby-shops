@@ -1,4 +1,4 @@
-company;url;category;city;country;type
+name;url;category;city;country;type
 Babbel;https://www.babbel.com/;;Berlin;Germany;Startup
 Wunder;https://wunder.org;;Hamburg;Germany;Startup
 Nebenan.de;https://nebenan.de/;;Berlin;Germany;Startup
@@ -146,6 +146,3 @@ Tabit;http://tabit-gmbh.de/;;Munich;Germany;Agency
 Pro7Sat1;http://www.prosiebensat1.com/;;Munich;Germany;Corporate
 Moovel;https://www.moovel.com/de/en;;Stuttgart;Germany;Startup
 Goodpatch;http://goodpatch.com/;;Berlin;Germany;Agency
-;;;;;
-;;;;;
-;;;;;
