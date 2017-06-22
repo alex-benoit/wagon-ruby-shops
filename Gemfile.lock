@@ -41,12 +41,7 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (7.1.1.2)
       execjs
-    better_errors (2.1.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
+    bindex (0.5.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -54,7 +49,6 @@ GEM
     byebug (9.0.6)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
-    debug_inspector (0.0.3)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -62,6 +56,7 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.4)
@@ -161,6 +156,11 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    web-console (3.5.1)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      bindex (>= 0.4.0)
+      railties (>= 5.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -170,11 +170,10 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  better_errors
-  binding_of_caller
   bootstrap-sass
   figaro
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
@@ -189,6 +188,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
+  web-console
 
 RUBY VERSION
    ruby 2.3.3p222
