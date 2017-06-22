@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <h1 class="main_title">RUBY COMPANIES</h1>
+  <h1 class="main_title">RUBY SHOPS</h1>
   <%= form_tag root_path, method: :get, enforce_utf8: false do %>
     <%= text_field_tag :search, params[:search], class: "search", autofocus: true %>
   <% end %>
@@ -8,8 +8,8 @@
   <% end %>
 </div>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
+  <div class="flex-row">
+    <div class="col">
       <div class="companies-category-control">
         <%= link_to "agency", "#", class: "category-btn blue-btn btn-active"  %>
         <%= link_to "product", "#", class: "category-btn orange-btn"  %>
@@ -18,9 +18,9 @@
         <%= render 'companies/company_card', company: company %>
       <% end %>
     </div>
-    <div class="hidden-xs col-xs-6">
-      <div class="map">
-
+    <div class="col">
+      <div class="map-container">
+        <div id="map"></div>
       </div>
     </div>
   </div>
@@ -37,25 +37,44 @@
         <%= simple_form_for @company, url: root_path, remote: true do |f| %>
           <%= f.input :name %>
           <%= f.input :url %>
-          <%= f.input :employees %>
-          <%= simple_fields_for :location do |l| %>
-            <%= l.input :name, label: 'Location' %>
+          <div class="row">
+            <div class="col-xs-6"><%= f.association :category, include_blank: 'Select a category' %></div>
+            <div class="col-xs-6"><%= f.input :employees %></div>
+          </div>
+          <%= simple_fields_for :city do |c| %>
+          <div class="row">
+            <div class="col-xs-6"><%= c.input :name, label: 'City' %></div>
+            <div class="col-xs-6"><%= c.input :country, priority: ['FR', 'GB', 'DE', 'NL', 'BE', 'PT', 'DK', 'ES', 'CA', 'BR', 'CN', 'JP'], include_blank: 'Select a country' %></div>
+          </div>
           <% end %>
-          <%= f.association :category %>
+          <%= f.submit %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<%= content_for(:after_js) do %>
-<script>
-  $(function(){
+<% content_for :after_js do  %>
+  <script>
+    $(function(){
     $(".search").typed({
-      strings: ["Paris", "London", "Berlin", "Bordeaux", "Amsterdam", "Shanghai", "Tokyo", "Brussels", "Lisbon"],
-      typeSpeed: 3,
-      attr: 'placeholder'
+        strings: ["Paris", "London", "Berlin", "Bordeaux", "Amsterdam", "Shanghai", "Tokyo", "Brussels", "Lisbon"],
+        typeSpeed: 3,
+        attr: 'placeholder'
+      });
     });
-  });
-</script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    })
+  </script>
 <% end %>

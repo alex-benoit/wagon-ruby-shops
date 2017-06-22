@@ -8,8 +8,11 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.3'
 gem 'redis'
+gem "coffee-rails"
+gem "gmaps4rails"
 
 # logic
+gem 'country_select'
 gem 'geocoder'
 
 # front-end
@@ -20,6 +23,9 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 # development
 group :development, :test do
