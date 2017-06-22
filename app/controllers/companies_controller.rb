@@ -1,7 +1,11 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
-    @locations = Location.includes(:city).all
+    if params[:search] && !params[:search].blank?
+      @companies = Company.includes(:locations).joins(:cities).where("companies.name iLIKE :company_name OR cities.name iLIKE :city_name", company_name: "%#{params[:search]}%", city_name: "%#{params[:search]}%")
+    else
+      @companies = Company.all
+    end
+    @locations = @companies.map(&:locations).flatten
     @company = Company.new
     @hash = Gmaps4rails.build_markers(@locations.map(&:city)) do |city, marker|
       marker.lat city.latitude

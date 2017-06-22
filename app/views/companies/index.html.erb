@@ -1,13 +1,11 @@
 <div class="container text-center">
-  <h1 class="main_title">RUBY COMPANIES</h1>
+  <h1 class="main_title">RUBY SHOPS</h1>
   <%= form_tag root_path, method: :get, enforce_utf8: false do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'Search', name: nil %>
+    <%= text_field_tag :search, params[:search], class: "search", autofocus: true %>
   <% end %>
-
-  <button type="button" data-toggle="modal" data-target="#modal">
-    Add new company
-  </button>
+  <%= link_to "#", data: { toggle: "modal", target: "#modal" }, class: "add-company" do %>
+    <i class="fa fa-plus"></i>
+  <% end %>
 </div>
 <div class="container-fluid">
   <div class="flex-row">
@@ -43,9 +41,16 @@
     </div>
   </div>
 </div>
+
 <% content_for :after_js do  %>
   <script>
     $(document).ready(function() {
+      $(".search").typed({
+        strings: ["Paris", "London", "Berlin", "Bordeaux", "Amsterdam", "Shanghai", "Tokyo", "Brussels", "Lisbon"],
+        typeSpeed: 3,
+        attr: 'placeholder'
+      });
+
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
@@ -60,4 +65,3 @@
     })
   </script>
 <% end %>
-
