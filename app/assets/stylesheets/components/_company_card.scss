@@ -1,12 +1,67 @@
 .company-card {
   background: white;
-  height: 90px;
+  height: 100px;
+  display: flex;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.03);
+  &:hover {
+    .company-card-control {
+      width: 100px;
+      transition: 1s;
+      .card-link {
+        display: flex;
+      }
+    }
+  }
 }
 
 .company-card-logo {
+  height: 100%;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
 
 }
 
 .company-card-content {
+  margin-left: 10px;
+  padding: 10px 0;
+  color: #6F6F6F;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 0 auto;
+  h3 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    opacity: .8;
+  }
+}
+.company-card-control {
+  cursor: pointer;
+  width: 4px;
+  transition: 1s;
+  .card-link {
+    font-size: 30px;
+    display: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
 
+.orange-card-control {
+  background-color: $orange;
+}
+
+.blue-card-control {
+  background-color: $blue;
 }

@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  has_many :locations
+  has_many :locations, dependent: :destroy
   has_many :cities, through: :locations
   belongs_to :category
 
