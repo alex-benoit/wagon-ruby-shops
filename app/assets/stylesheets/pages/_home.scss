@@ -1,3 +1,28 @@
 .companies-category-control {
   margin: 20px auto;
 }
+
+.map-container {
+  position: sticky;
+  top: 0;
+  margin-right: -15px;
+  padding-left: 15px;
+  margin-top: 20px;
+}
+
+#map {
+  height: 100vh;
+}
+
+.flex-row {
+  display: flex;
+  @media(max-width: 768px) {
+    flex-wrap: wrap;
+    .col {
+      width: 100%;
+    }
+  }
+  .col {
+    width: 50%;
+  }
+}
