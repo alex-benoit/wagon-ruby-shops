@@ -6,7 +6,7 @@ class Company < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :url, presence: true
 
-  before_validation :strip_company_name
+  before_validation :strip_company_name, :normalize_url
 
   private
 
