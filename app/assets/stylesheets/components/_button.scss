@@ -23,3 +23,15 @@
 .btn-active {
   opacity: 1;
 }
+
+.add-company {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #6F6F6F;
+  font-size: 30px;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  &:hover {
+    color: #5C5D5D;
+  }
+}

@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    if params[:search] && !params[:search].blank?
+      @companies = Company.where("name iLIKE :name", name: "%#{params[:search]}%")
+    else
+      @companies = Company.all
+    end
     @locations = Location.includes(:city).all
     @company = Company.new
     @hash = Gmaps4rails.build_markers(@locations.map(&:city)) do |city, marker|
