@@ -3,7 +3,7 @@
 <% else %>
   $('#modal').modal('hide');
   var new_company = $("<%= j render 'companies/company_card', company: @company %>").hide();
-  $('#companies-container').append(new_company);
+  $('#companies-container').prepend(new_company);
   new_company.slideDown();
   $('#new-company-container').html("<%= j render 'companies/form', company: Company.new %>");
 <% end %>
