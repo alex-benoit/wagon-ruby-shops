@@ -1,12 +1,19 @@
 .company-card {
   background: white;
   height: 90px;
+  display: flex;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.03);
 }
 
 .company-card-logo {
+  height: 100%;
+  width: 90px;
+  background-size: cover;
+  background-position: center;
 
 }
 
 .company-card-content {
-
+  margin-left: 10px;
 }
