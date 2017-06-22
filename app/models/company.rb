@@ -13,4 +13,8 @@ class Company < ApplicationRecord
   def strip_company_name
     name.strip!
   end
+
+  def normalize_url
+    url.strip!.gsub!(/(www.)|(http:\/\/)|(https:\/\/)/, '').prepend('http://www.')
+  end
 end
