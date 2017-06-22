@@ -1,1 +1,9 @@
-console.log('yo');
+<% if @company.errors.any? %>
+  $('#new-company-container').html("<%= j render 'companies/form', company: @company %>");
+<% else %>
+  $('#modal').modal('hide');
+  var new_company = $("<%= j render 'companies/company_card', company: @company %>").hide();
+  $('#companies-container').append(new_company);
+  new_company.slideDown();
+  $('#new-company-container').html("<%= j render 'companies/form', company: Company.new %>");
+<% end %>
