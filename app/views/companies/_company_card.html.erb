@@ -8,4 +8,9 @@
       <p><i class="fa fa-map-marker"></i> <%= company[:employees] %></p>
     </div>
   </div>
+  <div class="company-card-control <%= company[:category] == 'product' ? 'blue-card-control' : 'orange-card-control' %>">
+    <%= link_to company[:url], class: "card-link" do %>
+      <i class="fa fa-link"></i>
+    <% end %>
+  </div>
 </div>

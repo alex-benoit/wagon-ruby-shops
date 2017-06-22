@@ -3,9 +3,9 @@ class CompaniesController < ApplicationController
   def index
     # @companies = Company.all
     @companies = [
-      {name: "Airbnb", url: "www.lewagon.com", employees: 5000, logo: "//logo.clearbit.com/airbnb.com"},
-      {name: "Spotify", url: "www.lewagon.com", employees: 300, logo: "//logo.clearbit.com/spotify.com"},
-      {name: "Deliveroo", url: "www.lewagon.com", employees: 20, logo: "//logo.clearbit.com/deliveroo.com"}
+      {name: "Airbnb", url: "www.lewagon.com", employees: 5000, logo: "//logo.clearbit.com/airbnb.com", category: "product"},
+      {name: "Spotify", url: "www.lewagon.com", employees: 300, logo: "//logo.clearbit.com/spotify.com", category: "agency"},
+      {name: "Deliveroo", url: "www.lewagon.com", employees: 20, logo: "//logo.clearbit.com/deliveroo.com", category: "product"}
     ]
 
   end

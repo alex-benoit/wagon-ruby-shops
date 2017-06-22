@@ -8,6 +8,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
+      <div class="companies-category-control">
+        <%= link_to "agency", "#", class: "category-btn blue-btn btn-active"  %>
+        <%= link_to "product", "#", class: "category-btn orange-btn"  %>
+      </div>
       <% @companies.each do |company| %>
         <%= render 'companies/company_card', company: company %>
       <% end %>
