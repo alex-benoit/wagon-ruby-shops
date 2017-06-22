@@ -35,11 +35,17 @@
         <%= simple_form_for @company, url: root_path, remote: true do |f| %>
           <%= f.input :name %>
           <%= f.input :url %>
-          <%= f.input :employees %>
-          <%= simple_fields_for :location do |l| %>
-            <%= l.input :name, label: 'Location' %>
+          <div class="row">
+            <div class="col-xs-6"><%= f.association :category, include_blank: 'Select a category' %></div>
+            <div class="col-xs-6"><%= f.input :employees %></div>
+          </div>
+          <%= simple_fields_for :city do |c| %>
+          <div class="row">
+            <div class="col-xs-6"><%= c.input :name, label: 'City' %></div>
+            <div class="col-xs-6"><%= c.input :country, priority: ['FR', 'GB', 'DE', 'NL', 'BE', 'PT', 'DK', 'ES', 'CA', 'BR', 'CN', 'JP'], include_blank: 'Select a country' %></div>
+          </div>
           <% end %>
-          <%= f.association :category %>
+          <%= f.submit %>
         <% end %>
       </div>
     </div>

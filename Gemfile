@@ -10,6 +10,7 @@ gem 'rails', '5.0.3'
 gem 'redis'
 
 # logic
+gem 'country_select'
 gem 'geocoder'
 
 # front-end
