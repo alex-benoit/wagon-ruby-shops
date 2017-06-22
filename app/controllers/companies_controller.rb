@@ -1,10 +1,14 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
+    @company = Company.new
   end
 
   def create
+
     category = Category.find(params[:category_id])
+    category = Category.find(params[:category_id])
+
     @company = category.companies.build(product_params)
     redirect_to companies_path if @company.save
   end

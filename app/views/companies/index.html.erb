@@ -1,9 +1,13 @@
 <div class="container text-center">
   <h1 class="main_title">RUBY COMPANIES</h1>
-  <%= form_tag companies_path, :method => 'get' do %>
+  <%= form_tag root_path, method: :get, enforce_utf8: false do %>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag 'Search', name: nil %>
   <% end %>
+
+  <button type="button" data-toggle="modal" data-target="#modal">
+    Add new company
+  </button>
 </div>
 <div class="container-fluid">
   <div class="row">
@@ -15,6 +19,28 @@
     <div class="hidden-xs col-xs-6">
       <div class="map">
 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a new Company</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @company, url: root_path, remote: true do |f| %>
+          <%= f.input :name %>
+          <%= f.input :url %>
+          <%= f.input :employees %>
+          <%= simple_fields_for :location do |l| %>
+            <%= l.input :name, label: 'Location' %>
+          <% end %>
+          <%= f.association :category %>
+        <% end %>
       </div>
     </div>
   </div>
