@@ -15,6 +15,6 @@ class Company < ApplicationRecord
   end
 
   def normalize_url
-    url.strip!.gsub!(/(www.)|(http:\/\/)|(https:\/\/)/, '').prepend('http://www.')
+    self.url = url.strip.gsub(/(www.)|(http:\/\/)|(https:\/\/)/, '').prepend('http://www.')
   end
 end
