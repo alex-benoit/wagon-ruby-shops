@@ -1,6 +1,7 @@
 <div class="company-card">
-
-  <div class="company-card-logo" style="background-image: url('http://logo.clearbit.com/<%= company.url %>')">
+  <% last = company.url.split(".")[2] %>
+  <% last = last.split("/").first %>
+  <div class="company-card-logo" style="background-image: url('http://logo.clearbit.com/www.<%= company.url.split(".")[1] %>.<%= last %>')">
   </div>
   <div class="company-card-content">
     <h3><%= company.name %></h3>
