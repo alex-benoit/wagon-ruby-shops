@@ -2,19 +2,16 @@ class City < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  def address
-    "#{name} #{country}"
-  end
-
-  private
-
-  has_many :locations
+  has_many :locations, dependent: :destroy
   has_many :companies, through: :locations
 
   before_validation :normalize_name_and_country
 
-  validates :name, presence: true, uniqueness: { scope: :country,
-    message: "city already exists in that country" }
+  validates :name, presence: true, uniqueness: { scope: :country, message: 'city already exists in that country' }
+
+  def address
+    "#{name} #{country}"
+  end
 
   private
 

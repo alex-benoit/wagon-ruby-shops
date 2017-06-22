@@ -12,6 +12,7 @@ gem "coffee-rails"
 gem "gmaps4rails"
 
 # logic
+gem 'country_select'
 gem 'geocoder'
 
 # front-end
