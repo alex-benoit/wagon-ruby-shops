@@ -1,27 +1,27 @@
 .category-btn {
   padding: 10px 20px;
-  margin-right: 10px;
   color: white;
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: 2px 2px 3px rgba(0,0,0,0.03);
   opacity: .2;
+
   &:hover {
     text-decoration: none;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
     color: white;
   }
-}
 
-.orange-btn {
-  background-color: $orange;
-}
+  &.orange-btn {
+    background-color: $orange;
+  }
 
-.blue-btn {
+  &.blue-btn {
   background-color: $blue;
 }
 
-.btn-active {
-  opacity: 1;
+  &.btn-active {
+    opacity: 1;
+  }
 }
 
 .add-company {
@@ -31,6 +31,7 @@
   color: #6F6F6F;
   font-size: 30px;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+
   &:hover {
     color: #5C5D5D;
   }

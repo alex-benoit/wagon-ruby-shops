@@ -1,6 +1,8 @@
 //= require rails-ujs
 //= require jquery
-//= require bootstrap-sprockets
+//= require popper
+//= require tether
+//= require bootstrap
 //= require underscore
 //= require gmaps/google
 //= require_tree .

@@ -18,11 +18,15 @@ gem 'webpacker'
 
 # front-end
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+
+# bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'popper_js'
+gem 'tether-rails'
 
 # rails assets
 source 'https://rails-assets.org' do
