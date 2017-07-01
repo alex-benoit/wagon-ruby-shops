@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
     else
       @companies = Company.all
     end
-    @locations = @companies.map(&:locations).flatten
+    @locations = Location.all
     @company = Company.new
     @hash = Gmaps4rails.build_markers(@locations.map(&:city)) do |city, marker|
       marker.lat city.latitude

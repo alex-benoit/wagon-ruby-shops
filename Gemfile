@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.4.1'
 
 # back-end
 gem 'figaro'
@@ -14,17 +14,17 @@ gem 'coffee-rails'
 gem 'country_select'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'webpacker'
 
 # front-end
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
-# Rails assets
+# rails assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
 end

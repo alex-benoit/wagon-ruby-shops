@@ -1,7 +1,7 @@
 <div class="container text-center">
   <h1 class="main_title">RUBY SHOPS</h1>
   <%= form_tag root_path, method: :get, enforce_utf8: false do %>
-    <%= text_field_tag :search, params[:search], class: "search", autofocus: true %>
+    <%= text_field_tag :search, params[:search], autofocus: true %>
   <% end %>
   <%= link_to "#", data: { toggle: "modal", target: "#modal" }, class: "add-company" do %>
     <i class="fa fa-plus"></i>
@@ -44,13 +44,12 @@
 
 <% content_for :after_js do  %>
   <script>
-    $(document).ready(function() {
+    $(function() {
       $(".search").typed({
         strings: ["Paris", "London", "Berlin", "Bordeaux", "Amsterdam", "Shanghai", "Tokyo", "Brussels", "Lisbon"],
         typeSpeed: 3,
         attr: 'placeholder'
       });
-
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
