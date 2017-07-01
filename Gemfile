@@ -3,17 +3,17 @@ ruby '2.3.3'
 
 # back-end
 gem 'figaro'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 gem 'pg'
 gem 'puma'
-gem 'rails', '5.0.3'
+gem 'rails'
 gem 'redis'
-gem "coffee-rails"
-gem "gmaps4rails"
 
 # logic
+gem 'coffee-rails'
 gem 'country_select'
 gem 'geocoder'
+gem 'gmaps4rails'
 
 # front-end
 gem 'autoprefixer-rails'
@@ -23,8 +23,10 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+
+# Rails assets
 source 'https://rails-assets.org' do
-  gem "rails-assets-underscore"
+  gem 'rails-assets-underscore'
 end
 
 # development
