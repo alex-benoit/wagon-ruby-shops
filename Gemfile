@@ -18,6 +18,7 @@ gem 'webpacker'
 
 # front-end
 gem 'autoprefixer-rails'
+gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
