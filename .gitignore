@@ -5,8 +5,4 @@ tmp/*
 *.swp
 .DS_Store
 public/assets
-
-# Ignore application configuration
 /config/application.yml
-/public/packs
-/node_modules

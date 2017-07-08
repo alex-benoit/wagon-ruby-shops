@@ -14,7 +14,6 @@ gem 'coffee-rails'
 gem 'country_select'
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'webpacker'
 
 # front-end
 gem 'autoprefixer-rails'
@@ -26,7 +25,6 @@ gem 'uglifier'
 
 # bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'popper_js'
 gem 'tether-rails'
 
 # rails assets
